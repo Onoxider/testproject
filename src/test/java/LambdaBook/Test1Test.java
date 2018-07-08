@@ -2,10 +2,7 @@ package LambdaBook;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -51,6 +48,18 @@ public class Test1Test {
         assertEquals("10", intplusToString.apply(5));
         assertEquals("5", intToString.apply(5));
 
+    }
+
+    @Test
+    public void testJava8() {
+        assertEquals(Optional.of(Optional.of("STRING")),
+                Optional
+                        .of("string")
+                        .map(s -> Optional.of("STRING")));
+
+        assertEquals(Optional.of("STRING"), Optional
+                .of("string")
+                .flatMap(s -> Optional.of("STRING")));
     }
 
 
